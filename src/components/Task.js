@@ -1,6 +1,11 @@
 import React from "react";
 
-function Task({ taskText, taskCategory, handleDelete }) {
+function Task({ taskText, taskCategory, tasks, setTasks }) {
+  function handleDelete(event){
+    event.preventDefault()
+    const newDeleteTask = tasks.filter((task) => task.text !== taskText)
+    setTasks(newDeleteTask)
+  }
 
   return (
     <div className="task">
