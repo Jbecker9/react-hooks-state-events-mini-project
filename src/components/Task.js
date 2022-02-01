@@ -1,16 +1,16 @@
 import React from "react";
 
-function Task({ taskText, taskCategory, tasks, setTasks }) {
+function Task({ text, category, tasks, setTasks }) {
   function handleDelete(event){
     event.preventDefault()
-    const newDeleteTask = tasks.filter((task) => task.text !== taskText)
+    const newDeleteTask = tasks.filter((task) => task.text !== text)
     setTasks(newDeleteTask)
   }
 
   return (
     <div className="task">
-      <div className="label">{taskCategory}!</div>
-      <div className="text">{taskText}!</div>
+      <div className="label">{category}</div>
+      <div className="text">{text}</div>
       <button className="delete" onClick={handleDelete}>X</button>
     </div>
   );
