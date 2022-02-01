@@ -8,14 +8,15 @@ console.log("Here's the data you're working with");
 console.log({ CATEGORIES, TASKS });
 
 function App() {
-  const [list, setList] = useState(TASKS)
+  const [tasks, setTasks] = useState(TASKS)
+  const [categories, setCategories] = useState(CATEGORIES)
 
   return (
     <div className="App">
       <h2>My tasks</h2>
       <CategoryFilter />
       <NewTaskForm />
-      <TaskList list={list}/>
+      <TaskList setTasks={setTasks} tasks={tasks} categories={categories}/>
     </div>
   );
 }

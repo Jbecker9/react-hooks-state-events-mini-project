@@ -1,12 +1,19 @@
 import React from "react";
 import Task from "./Task";
 
-function TaskList({ list }) {
+function TaskList({ tasks, categories, setTasks }) {
+  function handleDelete(event){
+    event.preventDefault()
+    const selectedDelete = event.target.parentNode
+    console.log(event.target.parentNode)
+    // const newDeleteTask = tasks.filter((task) => task.text !== )
+    // setTasks(newDeleteTask)
+  }
 
   return (
     <div className="tasks">
-      {list.map((task)=>
-        <Task taskText={task.text} taskCategory={task.category}/>
+      {tasks.map((task)=>
+        <Task handleDelete={handleDelete} key={task.text} taskText={task.text} taskCategory={task.category}/>
       )}
       {/* display a list of tasks using Task component */}
     </div>
