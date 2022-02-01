@@ -10,6 +10,7 @@ console.log({ CATEGORIES, TASKS });
 function App() {
   const [tasks, setTasks] = useState(TASKS)
   const [categories, setCategories] = useState(CATEGORIES)
+  const [ItemDelete, setDelete] = useState(tasks)
 
   return (
     <div className="App">
