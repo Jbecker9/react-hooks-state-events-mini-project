@@ -1,9 +1,9 @@
 import React from "react";
 
-function Task({ text, category, tasks, setTasks }) {
+function Task({ text, category, tasks, setTasks, taskOne }) {
   function handleDelete(event){
     event.preventDefault()
-    const newDeleteTask = tasks.filter((task) => task.text !== text)
+    const newDeleteTask = tasks.filter((task) => task.text !== text )
     setTasks(newDeleteTask)
   }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-function TaskList({ tasks, categories, setTasks }) {
+function TaskList({ tasks, setTasks }) {
 
   return (
     <div className="tasks">
