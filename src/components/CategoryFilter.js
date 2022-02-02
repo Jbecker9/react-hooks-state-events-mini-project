@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-function CategoryFilter({ tasks, setTasks, categories, isFiltered, setFilter }) {
-  const [isSelected, setSelected] = useState("All")
-
+function CategoryFilter({ tasks, setTasks, isSelected, setSelected, categories, isFiltered, setFilter }) {
 
   function handleFilter(event){
     const filteredTasks = tasks.filter((task) => {
@@ -15,9 +13,8 @@ function CategoryFilter({ tasks, setTasks, categories, isFiltered, setFilter }) 
       }
     })
     setFilter(filteredTasks)
-    setSelected(event.target.innerText)
+    setSelected(event.target.value)
   }
-
 
   return (
     <div className="categories">

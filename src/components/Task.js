@@ -1,8 +1,7 @@
 import React from "react";
 
 function Task({ text, category, setFilter, isFiltered }) {
-  function handleDelete(event){
-    event.preventDefault()
+  function handleDelete(){
     const newDeleteTask = isFiltered.filter((task) => task.text !== text )
     setFilter(newDeleteTask)
   }
