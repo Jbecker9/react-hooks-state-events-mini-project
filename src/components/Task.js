@@ -1,10 +1,10 @@
 import React from "react";
 
-function Task({ text, category, tasks, setTasks, taskOne }) {
+function Task({ text, category, setFilter, isFiltered }) {
   function handleDelete(event){
     event.preventDefault()
-    const newDeleteTask = tasks.filter((task) => task.text !== text )
-    setTasks(newDeleteTask)
+    const newDeleteTask = isFiltered.filter((task) => task.text !== text )
+    setFilter(newDeleteTask)
   }
 
   return (

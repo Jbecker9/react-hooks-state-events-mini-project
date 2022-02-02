@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
-function CategoryFilter({ tasks, setTasks, categories, taskFilter, isFiltered, setFilter }) {
-  // console.log(categories)
+function CategoryFilter({ tasks, setTasks, categories, isFiltered, setFilter }) {
+  const [isSelected, setSelected] = useState("All")
+
 
   function handleFilter(event){
-    setFilter(event.target.innerText)
-    console.log("event", event.target.innerText)
-    console.log("filter", isFiltered)
-    console.log(taskFilter)
-    // if(event.target.innerText === isFiltered){
-    //   event.target.className = "selected"
-    // }
-    // else {
-    //   event.target.className = ""
-    // }
-    // console.log(isFiltered)
-    
+    const filteredTasks = tasks.filter((task) => {
+      if(task.category === event.target.innerText){
+        return  true && (event.target.className = "selected")
+
+      }
+      else if (event.target.innerText === "All"){
+        return true && (event.target.className = "selected")
+      }
+    })
+    setFilter(filteredTasks)
+    setSelected(event.target.innerText)
   }
 
 
@@ -23,7 +23,7 @@ function CategoryFilter({ tasks, setTasks, categories, taskFilter, isFiltered, s
     <div className="categories">
       <h5>Category filters</h5>
         {categories.map((category)=>
-          <button key={category}
+          <button className={isSelected === category ? "selected" : null} key={category}
           onClick={handleFilter}>
             {category}
           </button>

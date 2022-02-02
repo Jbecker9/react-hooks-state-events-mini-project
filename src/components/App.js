@@ -9,19 +9,8 @@ import { CATEGORIES, TASKS } from "../data";
 
 function App() {
   const [tasks, setTasks] = useState(TASKS)
-  const [isFiltered, setFilter] = useState("All")
+  const [isFiltered, setFilter] = useState(tasks)
 
-  const taskFilter = tasks.filter((task) => {
-    if(task.category === isFiltered){
-      return true
-    }
-    else if (isFiltered === "All"){
-      return true
-    }
-    else {
-      return false
-    }
-  })
   
   return (
     <div className="App">
@@ -32,12 +21,13 @@ function App() {
       categories={CATEGORIES} 
       isFiltered={isFiltered}
       setFilter={setFilter}
-      taskFilter={taskFilter}
       />
       <NewTaskForm />
       <TaskList
       setTasks={setTasks} 
-      tasks={taskFilter}/>
+      tasks={isFiltered}
+      setFilter={setFilter}
+      isFiltered={isFiltered}/>
     </div>
   );
 }
